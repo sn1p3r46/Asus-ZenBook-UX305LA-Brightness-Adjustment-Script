@@ -24,6 +24,9 @@ you need to edit the `/etc/sudoers` file (details in code comments).
 
 The `src/the_script.py` is a Python3 script that create the shortcut in Ubuntu environment using `gsettings`.
 
-The whole code in this repository comes without any kind of warranty or license, use it at your own risk.
 
-If you have some improvements or suggestions, please create a pull request or write to me at: andreagalloni92{at}gmail[dot]com
+---
+
+**The whole code in this repository comes without any kind of warranty or license, use it at your own risk.**
+
+`If you have some improvements or suggestions, please create a pull request or write to me at: andreagalloni92{at}gmail[dot]com`
