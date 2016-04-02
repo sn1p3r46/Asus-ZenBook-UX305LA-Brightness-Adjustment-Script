@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# This code comes without warranty and without license!
+# Use it at your own risk
+#
+# AUTHOR:  Andrea Galloni E-MAIL: andreagalloni92{at}gmail[dot]com
+#
+# please if you have suggestions or improvements open a pull request or write to me.
+
+#
+# This is a simple script to increase or decrease the brightness of my ASUS ZenBook UX305LA
+# USAGE:
+#	root@host# ./brightness up|down|num
+#					where num = [37-937]
+#
+
+echo "Hi $USER!"
+
+the_path="/sys/class/backlight/intel_backlight/brightness"
+value=$(<"/sys/class/backlight/intel_backlight/brightness")
+printf "\nCurrent value: $value\n"
+
+# echo "$1"
+
+if [ "$1" == "up" ];
+then
+	echo "up"
+	echo $(($value+100))
+        echo $(($value+100)) > $the_path
+
+elif [ "$1" == "down" ];
+then
+        echo "down"
+	echo "New value: $(($value-100))"
+	echo $(($value-100)) > $the_path
+
+elif [[ "$1" =~ ^-?[0-9]+$ ]];
+then
+	echo $1 > $the_path
+	echo "New value: $(</sys/class/backlight/intel_backlight/brightness)"
+else
+	printf  "\nWrong parameter.. \naccepted ones are: \n\t'up' or 'down' or num between 100 and 900\n"
+fi
+
+
+# in order to make the script executable as sudo without asking the pwd:
+# edit /etc/sudoers adding the following configurations with opportune values
+#
+# username ALL = (ALL) ALL
+# username ALL = (root) NOPASSWD: /path/to/the/script
+#
+# see the_script.py to create a shortcut and assign some keybindings
+#
+# some links:
+#	https://www.digitalocean.com/community/tutorials/how-to-edit-the-sudoers-file-on-ubuntu-and-centos
+#	http://unix.stackexchange.com/questions/18830/how-to-run-a-specific-program-as-root-without-a-password-prompt/13058#13058
+#
