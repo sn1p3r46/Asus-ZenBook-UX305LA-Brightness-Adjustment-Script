@@ -11,7 +11,7 @@
 This couple of scripts helps me to control the brightness of my UltraBook
 
 **DEPENDENCES:**
-  + Ubuntu 14.04
+  + Ubuntu 14.04 or superior
   + Python3
   + gsettings
 
