@@ -1,4 +1,4 @@
-# ASUS ZenBook UX305LA Brightness adjustment scripts
+## ASUS ZenBook UX305LA Brightness Adjustment Scripts
 
 
 **AUTHOR:** Andrea Galloni ([Twitter](https://twitter.com/andreagalloni92) or [Web](http://www.andreagalloni.eu))
