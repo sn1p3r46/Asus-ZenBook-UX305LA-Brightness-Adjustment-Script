@@ -28,8 +28,14 @@ firstname = "custom"
 
 # get the current list of custom shortcuts
 get = lambda cmd: subprocess.check_output(["/bin/bash", "-c", cmd]).decode("utf-8")
-current = eval(get("gsettings get "+key))
 
+try:
+    current = eval(get("gsettings get "+key))
+except Exception as excp:
+    # raised if the list is empty
+    outPut = get("gsettings get "+key).split()
+    current = eval(outPut[1])
+    
 # make sure the additional keybinding mention is no duplicate
 n = 1
 while True:
